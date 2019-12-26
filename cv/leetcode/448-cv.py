@@ -29,6 +29,6 @@ class Solution:
         return res
         
         
-res = Solution().findDisappearedNumbers([3,2, 1,2])
+res = Solution().findDisappearedNumbers([3,2,1,2])
 print(res)
 
