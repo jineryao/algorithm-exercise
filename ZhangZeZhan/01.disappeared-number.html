@@ -30,7 +30,7 @@
                 newArr.push(i)
             }
             newArr.forEach(item => {
-                if (nums.indexOf(item) === -1) {
+                if (!nums.includes(item)) {
                     arr2.push(item)
                 }
             })
@@ -49,6 +49,20 @@
         //     return res
         // }
         // console.log(findDisappearedNumbers([1, 1]))
+
+        // var findDisappearedNumbers = function(nums) {
+        //     var alls = [].sort.call(nums, (k, v) => v - k)
+        //     var del = []
+        //     alls.sort((k, v) => {
+        //         var num = v - k
+        //         while (num !== 1 && num > 1) {
+        //             num -= 1
+        //             del.push(v - num)
+        //         }
+        //     })
+        //     return del
+        // }
+        // console.log(findDisappearedNumbers([1, -2, 5, 9]))
     </script>
 </body>
 </html>
