@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    // 给定一个包含 n 个整数的数组 nums，判断 nums 中是否存在三个元素 a，b，c ，使得 a + b + c = 0 ？找出所有满足条件且不重复的三元组。
+
+    // 注意：答案中不可以包含重复的三元组。
+
+    // 例如, 给定数组 nums = [-1, 0, 1, 2, -1, -4]，
+
+    // 满足要求的三元组集合为：
+    // [
+    //   [-1, 0, 1],
+    //   [-1, -1, 2]
+    // ]
+    // https://leetcode-cn.com/problems/3sum/
+    var threeSum = function(nums) {
+        for (let i = 0; i < nums.length - 2; i++) {
+            for (let j = i + 1; j < nums.length - 1; j++) { 
+                for (let k = i + 2; k < nums.length; k++) {
+                    if (nums[i] + nums[k] + nums[j] === 0) {
+                        return [nums[i],nums[k],nums[j]]
+                    }
+                }
+            }
+        }
+    }
+    console.log(threeSum([-1, -4,0, 1,2,-2,-3]))
+    </script>
+</body>
+</html>
