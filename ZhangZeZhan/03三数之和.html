@@ -21,17 +21,36 @@
     // ]
     // https://leetcode-cn.com/problems/3sum/
     var threeSum = function(nums) {
-        for (let i = 0; i < nums.length - 2; i++) {
-            for (let j = i + 1; j < nums.length - 1; j++) { 
-                for (let k = i + 2; k < nums.length; k++) {
-                    if (nums[i] + nums[k] + nums[j] === 0) {
-                        return [nums[i],nums[k],nums[j]]
+  // 最左侧值为定值，右侧所有值进行两边推进计算
+    let res = [];
+    nums.sort((a, b) => a - b);
+    let size = nums.length;
+    // a+b+c=0保证有正数负数,最后一位是正数
+        if (nums[0] <= 0 && nums[size - 1] >= 0) {
+            let i = 0;
+            while (i < size - 2) { // 长度最少大于等于3
+                if (nums[i] > 0) break; // 最左侧大于0，无解
+                let first = i + 1;
+                let last = size - 1;
+                while (first < last) {
+                    if (nums[i] * nums[last] > 0) break; // 三数同符号，无解
+                    let sum = nums[i] + nums[first] + nums[last];
+                    if (sum === 0) {
+                    res.push([nums[i], nums[first], nums[last]]);
+                    }
+                    if (sum <= 0) {
+                    // 负数过小，first右移
+                    while (nums[first] === nums[++first]) {} // 重复值跳过
+                    } else {
+                    while (nums[last] === nums[--last]) {} // 重复值跳过
                     }
                 }
+                while (nums[i] === nums[++i]) {}
             }
         }
+
+    return res;
     }
-    console.log(threeSum([-1, -4,0, 1,2,-2,-3]))
     </script>
 </body>
 </html>
