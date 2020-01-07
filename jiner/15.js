@@ -23,6 +23,11 @@ var threeSum = function(nums) {
 	return Object.values(tem)
 }
 /**
+ * 进行初始升序排列
+ * 进行循环：锁定初始数字i的索引，建立左右边界索引 j、k；
+ * 使用j、k边界进行数据匹配，当和<0时，j向中间靠近（j+1)，当和>0时，k向中间靠近（k-1)；
+ * 当i的值与上一位i-1的值相同，说明已经处理过，直接跳下一位（i+1）
+ * 同理j的值相同跳过步骤
  * @param {number[]} nums
  * @return {number[][]}
  */
