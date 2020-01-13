@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    //         一个机器人位于一个 m x n 网格的左上角 （起始点在下图中标记为“Start” ）。
+
+    // 机器人每次只能向下或者向右移动一步。机器人试图达到网格的右下角（在下图中标记为“Finish”）。
+
+    // 问总共有多少条不同的路径？
+    // https://leetcode-cn.com/problems/unique-paths/
+
+    // 思路： 杨辉三角形，第一行跟第一列都是1，结果值就是他上面那个元素跟他左边那个元素相加。先根据m，n生成一个几行几列默认为0的数组。把第一行第一列的元素赋值为1
+    var findUnsortedSubarray = function(m,n) {
+        let temp = [];
+        for (let i = 0; i < n; i++) {
+            // 生成n个数组，内容填充为0，元素个数6
+            temp[i] = Array(m).fill(0)
+        }
+        for (let i = 0; i < n;i++) {
+            for (let k = 0; k < m;k++) {
+                if (i == 0 && k == 0) { // 第一次循环是第一个数，改成1
+                    temp[i][k] = 1
+                } else if (i == 0) { // i = 0表示第一行，第一行数字全部是1
+                    temp[i][k] = 1
+                } else if (k == 0) {
+                    temp[i][k] = 1 // j = 0表示是第一列，第一列数组全部是1
+                } else {
+                    temp[i][k] = temp[i - 1][k] + temp[i][k - 1] // 除去以上判断就不是边上，当前点就是前面一行一列的和
+                }
+            }
+        }
+        return temp[n - 1][m - 1]
+    }
+    console.log(findUnsortedSubarray(5,3))
+    </script>
+</body>
+</html>

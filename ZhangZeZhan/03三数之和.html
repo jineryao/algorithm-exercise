@@ -33,16 +33,16 @@
                 let first = i + 1;
                 let last = size - 1;
                 while (first < last) {
-                    if (nums[i] * nums[last] > 0) break; // 三数同符号，无解
+                    if (nums[i] * nums[last] > 0) break; // 三数同符号，负负为正，负正得负，无解
                     let sum = nums[i] + nums[first] + nums[last];
                     if (sum === 0) {
-                    res.push([nums[i], nums[first], nums[last]]);
+                        res.push([nums[i], nums[first], nums[last]]);
                     }
                     if (sum <= 0) {
                     // 负数过小，first右移
-                    while (nums[first] === nums[++first]) {} // 重复值跳过
+                        while (nums[first] === nums[++first]) {} // 重复值跳过
                     } else {
-                    while (nums[last] === nums[--last]) {} // 重复值跳过
+                        while (nums[last] === nums[--last]) {} // 重复值跳过
                     }
                 }
                 while (nums[i] === nums[++i]) {}
