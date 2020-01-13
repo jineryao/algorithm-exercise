@@ -18,6 +18,18 @@ var uniquePaths = function(m, n) {
 }
 
 var uniquePaths2 = function(m, n) {
+    let row = n - 1
+    let col = m - 1
+	function operation(x, y) {
+		if (x > col || y > row) {
+            return 0
+        }
+        if (x === col && y === row) {
+            return 1
+        }
+        return operation(x + 1, y) + operation(x, y + 1)
+    }
+    return operation(0, 0)
 }
 
-console.log(uniquePaths2(2, 2))
+console.log(uniquePaths(10, 10))
