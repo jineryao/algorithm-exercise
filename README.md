@@ -11,4 +11,5 @@
 | 283  | https://leetcode-cn.com/problems/move-zeroes/                              | 20/01/20 |            |
 | 621  | https://leetcode-cn.com/problems/task-scheduler/                           | 20/01/20 |            |
 | 56   | https://leetcode-cn.com/problems/merge-intervals/                          | 20/03/16 |            |
-| 33   | https://leetcode-cn.com/problems/search-in-rotated-sorted-array/           | 20/03/16 |            |
+| 33   | https://leetcode-cn.com/problems/search-in-rotated-sorted-array/           | 20/03/30 |            |
+| 4    | https://leetcode-cn.com/problems/median-of-two-sorted-arrays/              | 20/03/30 |            |
